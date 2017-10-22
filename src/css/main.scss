@@ -1,16 +1,8 @@
-@import 'colors';
+@import 'base/base';
 
-#randomInt {
-  background-color: $main;
-  border: 1px solid black;
-  color: white;
-  padding: 5px;
-  display: flex;
-}
+@import 'utils/variables';
+@import 'utils/mixins';
 
-#randomRange {
-  background-color: $secondary;
-  border: 1px solid black;
-  color: white;
-  padding: 5px;
-}
+@import 'sections/test';
+
+@import 'layouts/home';

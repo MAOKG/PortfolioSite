@@ -1,0 +1,11 @@
+header {
+  width: 135px;
+  background: white;
+  padding: 30px 0;
+
+  .logo {
+    @include hide-text;
+    max-width: 135px;
+    background-image: url('../../img/MAO-logo.svg');
+  }
+}

@@ -1,8 +1,7 @@
-@import 'base/base';
-
 @import 'utils/variables';
 @import 'utils/mixins';
 
-@import 'sections/test';
+@import 'base/normalize';
 
-@import 'layouts/home';
+@import 'partials/header';
+

@@ -45,11 +45,13 @@ module.exports = {
         use: ['html-loader']
       },
       {
-        test: /\.(jpg|png)$/,
+        test: /\.(jpg|png|svg)$/,
         use: [
           {
-            loader: 'file-loader',
+            // loader: 'file-loader',
+            loader: 'url-loader',
             options: {
+              limit: 8192,
               name: '[name].[ext]',
               outputPath: 'img/'
               // publicPath: 'img/'
@@ -66,6 +68,7 @@ module.exports = {
     }),
     extractPlugin,
     new HtmlWebpackPlugin({
+      favicon: 'src/img/favicon.ico',
       template: 'src/index.html'
     }),
     new CleanWebpackPlugin(['dist'])

@@ -37,7 +37,8 @@ module.exports = {
       {
         test: /\.scss$/,
         use: extractPlugin.extract({
-          use: ['css-loader', 'postcss-loader', 'sass-loader']
+          // use: ['css-loader', 'postcss-loader', 'sass-loader']
+          use: ['css-loader', 'postcss-loader', 'resolve-url-loader', 'sass-loader?sourceMap']
         })
       },
       {
@@ -49,9 +50,9 @@ module.exports = {
         use: [
           {
             // loader: 'file-loader',
-            loader: 'url-loader',
+            loader: require.resolve('url-loader'),
             options: {
-              limit: 8192,
+              limit: 1000,
               name: '[name].[ext]',
               outputPath: 'img/'
               // publicPath: 'img/'

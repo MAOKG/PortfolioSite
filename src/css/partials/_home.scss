@@ -6,3 +6,44 @@
     display: block;
   }
 }
+
+.sections {
+  flex: 1;
+  section {
+    padding: 50px;
+  }
+  .flex {
+    display: flex;
+    flex-direction: rows;
+  }
+
+  .flex--center {
+    justify-content: center;
+  }
+
+  .flex--space-around {
+    justify-content: space-around;
+  }
+}
+
+.col-1 {
+  max-width: 300px;
+  margin: 0 10px;
+  background: grey;
+}
+
+.col-2 {
+  max-width: 620px;
+  margin: 0 10px;
+  background: green;
+}
+
+@media (max-width: 640px) {
+  .sections .flex {
+    display: block;
+  }
+
+  .col-1 {
+    max-width: 100%;
+  }
+}

@@ -54,8 +54,20 @@ module.exports = {
             options: {
               limit: 1000,
               name: '[name].[ext]',
-              outputPath: 'img/'
+              outputPath: 'assets/'
               // publicPath: 'img/'
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(pdf)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'assets/'
             }
           }
         ]
@@ -69,7 +81,7 @@ module.exports = {
     }),
     extractPlugin,
     new HtmlWebpackPlugin({
-      favicon: 'src/img/favicon.ico',
+      favicon: 'src/assets/favicon.ico',
       template: 'src/index.html'
     }),
     new CleanWebpackPlugin(['dist'])

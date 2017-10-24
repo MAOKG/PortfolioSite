@@ -17,7 +17,7 @@
   & &_logo {
     @include hide-text;
     max-width: 135px;
-    background-image: url('../../img/MAO-logo2.svg');
+    background-image: url('../../assets/MAO-logo2.svg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -48,10 +48,128 @@
         color: #666;
       }
     }
-    & &_resume {
-      text-align: center;
-      margin: 0 auto;
-      display: block;
+  }
+
+  & &_resume {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    background-color: white;
+    color: #999;
+    border: 2px solid #999;
+    margin: 0 15px;
+    font-family: $main-font;
+    padding: 5px 0;
+
+    &:hover {
+      border-color: #666;
+      color: #666;
     }
+  }
+
+  & &_toggle {
+    display: none;
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+    align-items: center;
+    cursor: pointer;
+
+    span,
+    span:before,
+    span:after {
+      content: '';
+      display: block;
+      height: 2px;
+      width: 100%;
+      position: relative;
+      background: #333;
+
+      transition: all 0.3s ease-in-out;
+    }
+    span:before {
+      top: 15px;
+    }
+    span:after {
+      top: -17px;
+    }
+
+    &:isOpen span {
+      background: transparent;
+    }
+    &:isOpen span:before,
+    &:isOpen span:after {
+      transform-origin: center;
+      transform: rotate(-45deg);
+      top: 0;
+    }
+    &:isOpen span:after {
+      // transform-origin: center;
+      transform: rotate(45deg);
+      // top: 0;
+    }
+  }
+}
+
+.header-mobile {
+  display: none;
+  position: absolute;
+  background: white;
+  width: 100%;
+  padding: 30px 0 20px 0;
+  transform: translateY(-100%);
+  transition: all 0.3s ease-in-out;
+
+  a {
+    text-decoration: none;
+    color: #999;
+    &:hover,
+    &:active {
+      color: #666;
+    }
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 775px) {
+  .header {
+    width: auto;
+    padding: 20px 0;
+
+    .header-position {
+      position: relative;
+      width: auto;
+      top: auto;
+      bottom: auto;
+      left: auto;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    & &_nav,
+    & &_resume {
+      display: none;
+    }
+
+    & &_logo {
+      height: 45px;
+    }
+
+    & &_toggle {
+      display: flex;
+    }
+  }
+
+  .header-mobile.isOpen {
+    display: block;
+    transform: translateY(0%);
   }
 }

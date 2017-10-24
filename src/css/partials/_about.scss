@@ -1,0 +1,43 @@
+.section-about {
+  height: 500px;
+  // background-image: url('../../assets/about-bg.jpg');
+  // background-size: cover;
+  // background-position: center bottom;
+  // display: flex;
+  background: #272822;
+
+  & &_textBox {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    // background: pink;
+    align-items: center;
+    // font-size: 60px;
+
+    .textWrapper {
+      // background: grey;
+      margin: 0 auto;
+      // line-height: 1;
+      color: #fff;
+      pre {
+        // white-space: pre-line;
+        font-size: 2em;
+        .const {
+          color: #66d9ef;
+        }
+        .equal {
+          color: #f92672;
+        }
+        .string {
+          color: #e6db74;
+        }
+        @media (max-width: 640px) and(min-width: 460px) {
+          font-size: 1.5em;
+        }
+        @media (max-width: 460px) {
+          font-size: 1em;
+        }
+      }
+    }
+  }
+}

@@ -19,7 +19,7 @@
       margin: 0 auto;
       // line-height: 1;
       color: #fff;
-      pre {
+      .aboutContent {
         // white-space: pre-line;
         font-size: 2em;
         .const {
@@ -31,6 +31,10 @@
         .string {
           color: #e6db74;
         }
+        &:after {
+          content: '|';
+          animation: blink 500ms linear infinite alternate;
+        }
         @media (max-width: 640px) and(min-width: 460px) {
           font-size: 1.5em;
         }
@@ -39,5 +43,14 @@
         }
       }
     }
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

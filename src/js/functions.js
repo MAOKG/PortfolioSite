@@ -1,22 +1,25 @@
 import $ from 'jquery';
 
-// $(() => {
-//   console.log('ready!');
-//   const aboutContent = $('.aboutContent');
-//   const aboutAnimation = new aboutAnimation(aboutContent);
-// });
-
 class AboutAnimation {
   constructor(ele) {
     this.ele = ele;
     this.Content = ele.html();
+    this.reset();
+  }
+
+  reset() {
     this.ele.html('');
-    this.cursorIndex = 0;
     this.tag = '';
     this.writingTag = false;
     this.tagOpen = false;
     this.typeSpeed = 150;
     this.tempTypeSpeed = 0;
+    if (this.cursorIndex >= this.Content.length) {
+      this.cursorIndex = 0;
+      this.typeAnimate();
+    } else {
+      this.cursorIndex = 0;
+    }
   }
 
   originalHtml() {
@@ -76,5 +79,7 @@ $(() => {
   const aboutContent = $('.aboutContent');
   const aboutAnimation = new AboutAnimation(aboutContent);
   aboutAnimation.typeAnimate();
-  // console.log(aboutAnimation.originalHtml());
+  setTimeout(() => {
+    aboutAnimation.reset();
+  }, 30000);
 });

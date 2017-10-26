@@ -14,7 +14,6 @@
   // }
   .flex {
     display: flex;
-    flex-direction: rows;
   }
 
   .flex--center {
@@ -33,12 +32,15 @@
 .col-1 {
   max-width: 300px;
   margin: 0 10px;
+  box-size: border-box;
   // background: grey;
 }
 
 .col-2 {
   max-width: 620px;
   margin: 0 10px;
+  width: 100%;
+  box-size: border-box;
 }
 
 @media (max-width: 640px) {

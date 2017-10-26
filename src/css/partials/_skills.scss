@@ -1,0 +1,47 @@
+.section-skills {
+  height: auto;
+  background: $secondary-color;
+
+  & &_header {
+    // font-size: 60px;
+    color: $main-color;
+    // text-align: center;
+    width: 100%;
+    // display: block;
+    // padding-bottom: 5px;
+    // background: grey;
+    height: 100px;
+    p {
+      margin-top: 0;
+      padding-top: 20px;
+      padding-bottom: 0;
+      font-size: 60px;
+      text-align: center;
+      // background: white;s
+    }
+  }
+
+  & &_icons {
+    // background: grey;
+    // height: 100px;
+    max-width: 620px;
+    width: 100%;
+    padding-bottom: 20px;
+    .icon-column {
+      // background: green;
+    }
+    .icon-container {
+      // background: green;
+      display: flex;
+      justify-content: space-around;
+      width: 300px;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .icon-container {
+    margin: 20px auto;
+  }
+}

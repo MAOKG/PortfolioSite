@@ -43,6 +43,7 @@ class AboutAnimation {
         this.tag += this.Content[this.cursorIndex];
       }
     }
+
     if (!this.writingTag && this.tagOpen) {
       this.tag.append(this.Content[this.cursorIndex]);
     }
@@ -54,6 +55,7 @@ class AboutAnimation {
       }
       this.ele.append(this.Content[this.cursorIndex]);
     }
+
     if (this.writingTag && this.Content[this.cursorIndex] === '>') {
       this.tempTypeSpeed = Math.random() * this.typeSpeed + 50;
       this.writingTag = false;
@@ -64,8 +66,9 @@ class AboutAnimation {
         this.tag = newSpan.children().first();
       }
     }
-    // console.log(this.ele.html());
+
     this.cursorIndex += 1;
+
     if (this.cursorIndex < this.Content.length) {
       setTimeout(() => {
         this.typeAnimate();

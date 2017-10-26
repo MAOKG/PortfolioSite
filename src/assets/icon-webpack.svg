@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="angularjs"
+   viewBox="0 0 100 100"
+   version="1.1"
+   sodipodi:docname="icon-webpack.svg"
+   width="100"
+   height="100"
+   inkscape:version="0.92.2 (30a58d1, 2017-08-07)">
+  <metadata
+     id="metadata78">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Artboard 12</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1123"
+     inkscape:window-height="644"
+     id="namedview76"
+     showgrid="false"
+     inkscape:zoom="4.48"
+     inkscape:cx="63.782339"
+     inkscape:cy="48.677955"
+     inkscape:window-x="147"
+     inkscape:window-y="36"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="angularjs" />
+  <defs
+     id="defs66">
+    <style
+       id="style64">.cls-1{fill:#8ed6fb;}.cls-2{fill:#1c78c0;}</style>
+  </defs>
+  <title
+     id="title68">Artboard 12</title>
+  <g
+     id="original"
+     transform="matrix(0.79346984,0,0,0.79346984,-0.36377463,-0.64225625)">
+    <path
+       class="cls-1"
+       d="M 117.29,98.1 66.24,127 V 104.49 L 98,87 Z m 3.5,-3.16 V 34.55 l -18.68,10.8 v 38.81 l 18.67,10.77 z m -110.08,3.16 51,28.88 V 104.49 L 29.94,87 Z M 7.21,94.94 V 34.55 l 18.68,10.8 V 84.16 Z M 9.4,30.64 61.76,1 v 21.76 l -33.55,18.45 -0.27,0.15 z m 109.18,0 L 66.24,1 v 21.76 l 33.55,18.44 0.27,0.15 18.54,-10.71 z"
+       id="path70"
+       inkscape:connector-curvature="0"
+       style="fill:#8ed6fb" />
+    <path
+       class="cls-2"
+       d="M 61.76,99.37 30.37,82.1 V 47.92 L 61.76,66 Z m 4.48,0 31.39,-17.25 V 47.92 L 66.24,66 Z M 32.5,44 64,26.66 95.5,44 64,62.16 Z"
+       id="path72"
+       inkscape:connector-curvature="0"
+       style="fill:#1c78c0" />
+  </g>
+</svg>

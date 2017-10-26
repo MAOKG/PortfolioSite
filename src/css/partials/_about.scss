@@ -1,5 +1,6 @@
 .section-about {
-  height: 500px;
+  height: 100vh;
+  min-height: 300px;
   // background-image: url('../../assets/about-bg.jpg');
   // background-size: cover;
   // background-position: center bottom;
@@ -8,7 +9,9 @@
 
   & &_textBox {
     width: 100%;
-    height: 500px;
+    // height: 500px;
+    height: 100vh;
+    min-height: 300px;
     display: flex;
     // background: pink;
     align-items: center;
@@ -21,7 +24,8 @@
       color: #fff;
       .aboutContent {
         // white-space: pre-line;
-        font-size: 2em;
+        font-size: calc(1em + 2.5vmin);
+        // font-size: 5vh;
         .const {
           color: #66d9ef;
         }

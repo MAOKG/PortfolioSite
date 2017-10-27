@@ -40,6 +40,7 @@
   max-width: 620px;
   margin: 0 10px;
   width: 100%;
+  padding: 0 10px;
   box-size: border-box;
 }
 
@@ -50,5 +51,8 @@
 
   .col-1 {
     max-width: 100%;
+  }
+  .col-2 {
+    margin: 0 auto;
   }
 }

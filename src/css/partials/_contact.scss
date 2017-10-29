@@ -1,0 +1,72 @@
+.section-contact {
+  background-image: url('../../assets/contact-bg.png');
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  width: 100%;
+  position: relative;
+
+  & &_icons {
+    max-width: 620px;
+    width: 100%;
+    padding-top: 150px;
+    // background: green;
+    overflow: hidden;
+
+    .icon-row {
+      display: flex;
+      justify-content: space-around;
+      width: 300px;
+      margin-bottom: 20px;
+      .icon-container {
+        width: 100px;
+        height: 100px;
+        img {
+          transition: 0.5s ease;
+        }
+        &:hover {
+          img {
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+  }
+
+  & &_footer {
+    position: absolute;
+
+    width: 100%;
+    bottom: 10px;
+    // background: green;
+    footer {
+      text-align: center;
+      color: $main-color;
+      font-size: 24px;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .section-contact {
+    & &_icons {
+      padding-top: 150px;
+      .icon-row {
+        .icon-container {
+          height: 50px;
+          width: 50px;
+          img {
+            height: 50px;
+            width: 50px;
+          }
+        }
+      }
+    }
+
+    & &_footer {
+      footer {
+        font-size: 18px;
+      }
+    }
+  }
+}

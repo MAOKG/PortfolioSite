@@ -1,5 +1,6 @@
 import $ from 'jquery';
 
+// About Section Animation
 class AboutAnimation {
   constructor(ele) {
     this.ele = ele;
@@ -77,12 +78,80 @@ class AboutAnimation {
   }
 }
 
-$(() => {
-  console.log('ready!');
+// Header Smooth Scroll
+function smoothScroll() {
   const aboutContent = $('.aboutContent');
   const aboutAnimation = new AboutAnimation(aboutContent);
   aboutAnimation.typeAnimate();
-  setTimeout(() => {
-    aboutAnimation.reset();
-  }, 30000);
+
+  $('a[href*="#"]').click(event => {
+    const id = event.target.attributes.href.value;
+    const target = $(id);
+
+    $('.header_toggle').removeClass('isOpen');
+    $('.header-mobile').removeClass('isOpen');
+
+    if (target.length) {
+      event.preventDefault();
+
+      $('html, body').animate(
+        {
+          scrollTop: target.offset().top
+        },
+        1000
+      );
+
+      if (id === '#about') {
+        aboutAnimation.reset();
+      }
+    }
+  });
+}
+
+// Header Scroll Spy
+function scrollSpy() {
+  const menuItems = $('a[href*="#"]');
+  const scrollItems = menuItems.map(function() {
+    // console.log(this.getAttribute('href'));
+    return $(this.getAttribute('href'));
+  });
+  // console.log(scrollItems);
+  $(window).scroll(() => {
+    const scrollPosition = $(window).scrollTop();
+    // console.log(scrollPosition);
+    let currentSection = scrollItems[0];
+    for (let i = scrollItems.length - 1; i > 0; i -= 1) {
+      if (scrollItems[i].offset().top - 200 <= scrollPosition) {
+        currentSection = scrollItems[i];
+        break;
+      }
+    }
+    // console.log($('.home-wrap')[0].clientHeight);
+    // const max = $('.home-wrap')[0].scrollHeight;
+    const max = $(document).height() - $(window).height();
+    if (scrollPosition > max - 200) {
+      currentSection = $('#contact');
+    }
+    menuItems
+      .removeClass('active')
+      .filter($(`a[href="#${currentSection.attr('id')}"]`))
+      .addClass('active');
+  });
+}
+
+$(() => {
+  console.log('ready!');
+  // Responsive header
+  $('.header_toggle').click(() => {
+    $('.header_toggle').toggleClass('isOpen');
+    $('.header-mobile').toggleClass('isOpen');
+  });
+
+  smoothScroll();
+  scrollSpy();
+
+  // About Section Type Animation
+  const aboutContent = $('.aboutContent');
+  const aboutAnimation = new AboutAnimation(aboutContent);
+  aboutAnimation.typeAnimate();
 });

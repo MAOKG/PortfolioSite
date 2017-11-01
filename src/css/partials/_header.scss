@@ -44,11 +44,13 @@
     a {
       text-decoration: none;
       color: #999;
+
       &:hover {
         color: #666;
       }
       &.active {
         color: black;
+        border-bottom: 3px solid black;
       }
     }
   }

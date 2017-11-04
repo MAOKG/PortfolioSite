@@ -140,12 +140,24 @@ function scrollSpy() {
 }
 
 $(() => {
-  console.log('ready!');
   // Responsive header
   $('.header_toggle').click(() => {
     $('.header_toggle').toggleClass('isOpen');
     $('.header-mobile').toggleClass('isOpen');
   });
+
+  // Contact icon hover
+  $('.section-contact .icon-container').hover(
+    function hoverIn() {
+      $('.section-contact .icon-container img').css('opacity', '0.3');
+      $(this)
+        .find('img')
+        .css('opacity', '1');
+    },
+    () => {
+      $('.section-contact .icon-container img').css('opacity', '1');
+    }
+  );
 
   smoothScroll();
   scrollSpy();

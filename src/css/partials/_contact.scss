@@ -19,15 +19,14 @@
       width: 300px;
       margin-bottom: 20px;
       .icon-container {
-        width: 100px;
-        height: 100px;
+        // width: 100px;
+        // height: 100px;
+        width: 70px;
+        height: 70px;
         img {
+          height: 70px;
+          width: 70px;
           transition: 0.5s ease;
-        }
-        &:hover {
-          img {
-            opacity: 0.3;
-          }
         }
       }
     }

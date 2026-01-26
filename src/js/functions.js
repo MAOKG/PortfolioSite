@@ -84,7 +84,7 @@ function smoothScroll() {
   const aboutAnimation = new AboutAnimation(aboutContent);
   aboutAnimation.typeAnimate();
 
-  $('a[href*="#"]').click(event => {
+  $('a[href*="#"]').click((event) => {
     const id = event.target.attributes.href.value;
     const target = $(id);
 
@@ -96,9 +96,9 @@ function smoothScroll() {
 
       $('html, body').animate(
         {
-          scrollTop: target.offset().top
+          scrollTop: target.offset().top,
         },
-        1000
+        1000,
       );
 
       if (id === '#about') {
@@ -111,7 +111,7 @@ function smoothScroll() {
 // Header Scroll Spy
 function scrollSpy() {
   const menuItems = $('a[href*="#"]');
-  const scrollItems = menuItems.map(function() {
+  const scrollItems = menuItems.map(function () {
     // console.log(this.getAttribute('href'));
     return $(this.getAttribute('href'));
   });
@@ -150,13 +150,11 @@ $(() => {
   $('.section-contact .icon-container').hover(
     function hoverIn() {
       $('.section-contact .icon-container img').css('opacity', '0.3');
-      $(this)
-        .find('img')
-        .css('opacity', '1');
+      $(this).find('img').css('opacity', '1');
     },
     () => {
       $('.section-contact .icon-container img').css('opacity', '1');
-    }
+    },
   );
 
   smoothScroll();

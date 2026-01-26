@@ -5,14 +5,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const extractPlugin = new ExtractTextPlugin({
-  filename: 'main.css'
+  filename: 'main.css',
 });
 
 module.exports = {
   entry: './src/js/app.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
     // publicPath: '/dist'
   },
   module: {
@@ -22,28 +22,28 @@ module.exports = {
         use: [
           {
             loader: 'expose-loader',
-            options: '$'
-          }
-        ]
+            options: '$',
+          },
+        ],
       },
       {
         test: /\.js$/,
         use: [
           {
-            loader: 'babel-loader'
-          }
-        ]
+            loader: 'babel-loader',
+          },
+        ],
       },
       {
         test: /\.scss$/,
         use: extractPlugin.extract({
           // use: ['css-loader', 'postcss-loader', 'sass-loader']
-          use: ['css-loader', 'postcss-loader', 'resolve-url-loader', 'sass-loader?sourceMap']
-        })
+          use: ['css-loader', 'postcss-loader', 'resolve-url-loader', 'sass-loader?sourceMap'],
+        }),
       },
       {
         test: /\.html$/,
-        use: ['html-loader']
+        use: ['html-loader'],
       },
       {
         test: /\.(jpg|png|svg)$/,
@@ -54,11 +54,11 @@ module.exports = {
             options: {
               limit: 1000,
               name: '[name].[ext]',
-              outputPath: 'assets/'
+              outputPath: 'assets/',
               // publicPath: 'img/'
-            }
-          }
-        ]
+            },
+          },
+        ],
       },
       {
         test: /\.(pdf)$/,
@@ -67,10 +67,10 @@ module.exports = {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
-              outputPath: 'assets/'
-            }
-          }
-        ]
+              outputPath: 'assets/',
+            },
+          },
+        ],
       },
       {
         test: /\.(txt)$/,
@@ -79,23 +79,23 @@ module.exports = {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
-              outputPath: './'
-            }
-          }
-        ]
-      }
-    ]
+              outputPath: './',
+            },
+          },
+        ],
+      },
+    ],
   },
   plugins: [
     new webpack.ProvidePlugin({
       $: 'jquery',
-      jQuery: 'jquery'
+      jQuery: 'jquery',
     }),
     extractPlugin,
     new HtmlWebpackPlugin({
       favicon: 'src/assets/favicon.ico',
-      template: 'src/index.html'
+      template: 'src/index.html',
     }),
-    new CleanWebpackPlugin(['dist'])
-  ]
+    new CleanWebpackPlugin(['dist']),
+  ],
 };

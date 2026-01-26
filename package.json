@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server",
     "build:prod": "webpack -p",
-    "format": "prettier --write --single-quote --print-width=120 --tab-width=2 \"**/*.js\"",
+    "format": "prettier --write \"**/*.js\"",
     "lint": "eslint \"**/*.js\" --quiet",
     "prepare": "husky"
   },

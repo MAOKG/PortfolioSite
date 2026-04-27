@@ -1,6 +1,7 @@
 // Convert pixels to ems
 // eg. for a relational value of 12px write em(12) when the parent is 16px
 // if the parent is another value say 24px write em(12, 24)
+@use "sass:math";
 
 @function em($pxval, $base: $em-base) {
   @if $output-bourbon-deprecation-warnings == true {
@@ -20,5 +21,5 @@
 
   $output-bourbon-deprecation-warnings: $user-deprecation-warnings-setting !global;
 
-  @return ($pxval / $base) * 1em;
+  @return math.div($pxval, $base) * 1em;
 }

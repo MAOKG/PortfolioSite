@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@use "sass:math";
 
 /// Strips the unit from a number.
 ///
@@ -18,5 +19,5 @@
     "removed in 5.0.0 and replaced by the `strip-unit` function.";
   }
 
-  @return ($value / ($value * 0 + 1));
+  @return math.div($value, $value * 0 + 1);
 }

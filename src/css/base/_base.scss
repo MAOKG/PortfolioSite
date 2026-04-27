@@ -1,7 +1,7 @@
-@import 'normalize';
+@use 'normalize';
+@use '../utils/variables' as *;
 
 body {
   background: $secondary-color;
   font-family: $main-font;
 }
-

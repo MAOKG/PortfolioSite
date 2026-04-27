@@ -1,3 +1,5 @@
+@use '../utils/variables' as *;
+
 .header {
   width: 135px;
   background: white;
@@ -15,7 +17,9 @@
   }
 
   & &_logo {
-    @include hide-text;
+    overflow: hidden;
+    text-indent: 101%;
+    white-space: nowrap;
     max-width: 135px;
     background-image: url('../../assets/MAO-logo2.svg');
     background-repeat: no-repeat;

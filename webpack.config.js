@@ -1,10 +1,10 @@
 const path = require('path');
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const extractPlugin = new ExtractTextPlugin({
+const extractPlugin = new MiniCssExtractPlugin({
   filename: 'main.css',
 });
 
@@ -13,76 +13,41 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    // publicPath: '/dist'
+    assetModuleFilename: 'assets/[name][ext]',
+    clean: true,
+  },
+  devServer: {
+    host: 'localhost',
+    port: 8080,
+    static: {
+      directory: path.resolve(__dirname, 'dist'),
+    },
   },
   module: {
     rules: [
       {
-        test: require.resolve('jquery'),
-        use: [
-          {
-            loader: 'expose-loader',
-            options: '$',
-          },
-        ],
-      },
-      {
         test: /\.js$/,
-        use: [
-          {
-            loader: 'babel-loader',
-          },
-        ],
+        exclude: /node_modules/,
+        use: 'babel-loader',
       },
       {
         test: /\.scss$/,
-        use: extractPlugin.extract({
-          // use: ['css-loader', 'postcss-loader', 'sass-loader']
-          use: ['css-loader', 'postcss-loader', 'resolve-url-loader', 'sass-loader?sourceMap'],
-        }),
-      },
-      {
-        test: /\.html$/,
-        use: ['html-loader'],
-      },
-      {
-        test: /\.(jpg|png|svg)$/,
         use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader',
+          'resolve-url-loader',
           {
-            // loader: 'file-loader',
-            loader: require.resolve('url-loader'),
+            loader: 'sass-loader',
             options: {
-              limit: 1000,
-              name: '[name].[ext]',
-              outputPath: 'assets/',
-              // publicPath: 'img/'
+              sourceMap: true,
             },
           },
         ],
       },
       {
-        test: /\.(pdf)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-              outputPath: 'assets/',
-            },
-          },
-        ],
-      },
-      {
-        test: /\.(txt)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-              outputPath: './',
-            },
-          },
-        ],
+        test: /\.(jpg|png|svg|pdf)$/i,
+        type: 'asset/resource',
       },
     ],
   },
@@ -96,6 +61,11 @@ module.exports = {
       favicon: 'src/assets/favicon.ico',
       template: 'src/index.html',
     }),
-    new CleanWebpackPlugin(['dist']),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: 'src/assets', to: 'assets' },
+        { from: 'src/assets/robots.txt', to: 'robots.txt' },
+      ],
+    }),
   ],
 };

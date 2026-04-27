@@ -24,10 +24,10 @@ Project layout
 - `src/index.html`: HTML template loaded by HtmlWebpackPlugin.
 - `src/js/app.js`: JS entry; imports styles/assets and bootstraps behavior.
 - `src/js/functions.js`: DOM behavior, animations, and interactions (jQuery).
-- `src/css/main.scss`: Sass entry; imports variables/mixins/base/partials.
+- `src/css/main.scss`: Sass entry; loads variables, base styles, and partials with `@use`.
 - `src/css/base`: base styles and normalize.
 - `src/css/partials`: section-specific styles.
-- `src/css/utils`: variables, mixins, and Bourbon utilities.
+- `src/css/utils`: shared Sass variables.
 - `src/assets`: images, icons, PDFs, robots.txt.
 
 Tooling and configuration
@@ -58,13 +58,14 @@ Error handling expectations
 
 Sass/CSS conventions
 - Entry file is `src/css/main.scss`; add new partials here in a logical section.
-- Keep variables in `src/css/utils/_variables.scss` and mixins in `src/css/utils/_mixins.scss`.
+- Keep shared variables in `src/css/utils/_variables.scss`.
+- Use Sass modules (`@use`) for local stylesheets; do not add new Sass `@import` rules.
 - Use nested selectors sparingly and only to reflect DOM hierarchy (see `_header.scss`).
 - Naming is class-based with BEM-ish modifiers (`.header`, `& &_logo`, `&.isOpen`).
 - Prefer variables for colors and fonts; current palette lives in `_variables.scss`.
-- Import order in `main.scss`: utils → base → partials.
+- Load order in `main.scss`: utils → base → partials.
 - Maintain 2-space indentation, LF line endings, and trailing newline.
-- Use Bourbon helpers where present; avoid duplicating Bourbon utilities.
+- Bourbon has been removed; use native CSS/Sass instead of reintroducing Bourbon helpers.
 
 Webpack/asset conventions
 - JS entry: `src/js/app.js`.

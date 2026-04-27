@@ -1,11 +1,10 @@
-@import 'utils/variables';
-@import 'utils/mixins';
+@use 'utils/variables' as *;
 
-@import 'base/base';
+@use 'base/base';
 
-@import 'partials/header';
-@import 'partials/about';
-@import 'partials/skills';
-@import 'partials/projects';
-@import 'partials/contact';
-@import 'partials/home';
+@use 'partials/header';
+@use 'partials/about';
+@use 'partials/skills';
+@use 'partials/projects';
+@use 'partials/contact';
+@use 'partials/home';

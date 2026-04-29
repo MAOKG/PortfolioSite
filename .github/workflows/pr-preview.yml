@@ -1,13 +1,17 @@
 name: Deploy PR Preview
 
 on:
-  pull_request_target:
+  pull_request:
     branches:
       - master
     types:
       - opened
       - reopened
       - synchronize
+  pull_request_target:
+    branches:
+      - master
+    types:
       - closed
 
 permissions:

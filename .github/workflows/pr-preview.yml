@@ -8,6 +8,10 @@ on:
       - opened
       - reopened
       - synchronize
+  pull_request_target:
+    branches:
+      - master
+    types:
       - closed
 
 permissions:
@@ -33,6 +37,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
 
       - name: Setup Node
         uses: actions/setup-node@v4
